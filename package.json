@@ -1,0 +1,14 @@
+{
+  "name": "krupa-enterprise",
+  "version": "1.0.0",
+  "description": "Discover premium, high-quality, BPA-free durable kitchenware, airtight food storage containers, leakproof lunch boxes, and kitchen organizers at Krupa Enterprise, Rajkot.",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node -e 'console.log(\"Build successful\")'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

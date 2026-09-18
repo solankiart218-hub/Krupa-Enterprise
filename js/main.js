@@ -37,6 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
    1. DYNAMIC CURSOR SPOTLIGHT & LIGHTING EFFECT
    ========================================================================== */
 function initCursorSpotlight() {
+  // Disable spotlight on touch devices and small viewports to prevent layout overflow and lag
+  if (window.innerWidth < 992 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0) {
+    return;
+  }
+
   const spotlight = document.createElement('div');
   spotlight.className = 'cursor-spotlight';
   document.body.appendChild(spotlight);
@@ -581,6 +586,31 @@ function init3DCoverflow() {
 
   function updateCoverflow() {
     const total = cards.length;
+    const stageWidth = stage.clientWidth || window.innerWidth;
+    const isMobile = stageWidth < 600;
+    const isTablet = stageWidth >= 600 && stageWidth < 992;
+
+    // Responsive step calculation to keep cards strictly inside viewport
+    let step1 = 200;
+    let step2 = 350;
+    let zCenter = 160;
+    let scaleCenter = 1.15;
+    let scaleSide = 0.9;
+
+    if (isMobile) {
+      step1 = Math.min(125, Math.floor(stageWidth * 0.26));
+      step2 = Math.min(210, Math.floor(stageWidth * 0.44));
+      zCenter = 70;
+      scaleCenter = 1.05;
+      scaleSide = 0.82;
+    } else if (isTablet) {
+      step1 = 160;
+      step2 = 280;
+      zCenter = 110;
+      scaleCenter = 1.1;
+      scaleSide = 0.86;
+    }
+
     cards.forEach((card, i) => {
       let offset = i - activeIndex;
 
@@ -590,56 +620,68 @@ function init3DCoverflow() {
 
       if (offset === 0) {
         // Active Center Card
-        card.style.transform = 'translate3d(0, 0, 160px) rotateY(0deg) scale(1.15)';
+        card.style.transform = `translate3d(0, 0, ${zCenter}px) rotateY(0deg) scale(${scaleCenter})`;
         card.style.opacity = '1';
         card.style.zIndex = '20';
-        card.style.boxShadow = '0 25px 50px -12px rgba(0, 0, 0, 0.35)';
+        card.style.boxShadow = '0 20px 40px -10px rgba(0, 0, 0, 0.35)';
         card.style.pointerEvents = 'auto';
         card.classList.add('active');
       } else if (offset === -1) {
         // Immediate Left
-        card.style.transform = 'translate3d(-200px, 0, 0px) rotateY(32deg) scale(0.9)';
-        card.style.opacity = '0.85';
+        card.style.transform = `translate3d(-${step1}px, 0, 0px) rotateY(${isMobile ? 22 : 32}deg) scale(${scaleSide})`;
+        card.style.opacity = isMobile ? '0.75' : '0.85';
         card.style.zIndex = '15';
-        card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+        card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.2)';
         card.style.pointerEvents = 'auto';
         card.classList.remove('active');
       } else if (offset === 1) {
         // Immediate Right
-        card.style.transform = 'translate3d(200px, 0, 0px) rotateY(-32deg) scale(0.9)';
-        card.style.opacity = '0.85';
+        card.style.transform = `translate3d(${step1}px, 0, 0px) rotateY(-${isMobile ? 22 : 32}deg) scale(${scaleSide})`;
+        card.style.opacity = isMobile ? '0.75' : '0.85';
         card.style.zIndex = '15';
-        card.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.2)';
+        card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.2)';
         card.style.pointerEvents = 'auto';
         card.classList.remove('active');
       } else if (offset === -2) {
         // Far Left
-        card.style.transform = 'translate3d(-350px, 0, -120px) rotateY(45deg) scale(0.75)';
-        card.style.opacity = '0.6';
+        if (isMobile) {
+          card.style.transform = `translate3d(-${step2}px, 0, -80px) rotateY(35deg) scale(0.65)`;
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.transform = `translate3d(-${step2}px, 0, -120px) rotateY(45deg) scale(0.75)`;
+          card.style.opacity = '0.6';
+          card.style.pointerEvents = 'auto';
+        }
         card.style.zIndex = '10';
         card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.15)';
-        card.style.pointerEvents = 'auto';
         card.classList.remove('active');
       } else if (offset === 2) {
         // Far Right
-        card.style.transform = 'translate3d(350px, 0, -120px) rotateY(-45deg) scale(0.75)';
-        card.style.opacity = '0.6';
+        if (isMobile) {
+          card.style.transform = `translate3d(${step2}px, 0, -80px) rotateY(-35deg) scale(0.65)`;
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.transform = `translate3d(${step2}px, 0, -120px) rotateY(-45deg) scale(0.75)`;
+          card.style.opacity = '0.6';
+          card.style.pointerEvents = 'auto';
+        }
         card.style.zIndex = '10';
         card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.15)';
-        card.style.pointerEvents = 'auto';
         card.classList.remove('active');
       } else if (offset < -2) {
         // Out of view Left
-        const hiddenX = -350 - (Math.abs(offset) - 2) * 80;
-        card.style.transform = `translate3d(${hiddenX}px, 0, -200px) rotateY(50deg) scale(0.6)`;
+        const hiddenX = -step2 - (Math.abs(offset) - 2) * 50;
+        card.style.transform = `translate3d(${hiddenX}px, 0, -180px) rotateY(45deg) scale(0.5)`;
         card.style.opacity = '0';
         card.style.zIndex = '1';
         card.style.pointerEvents = 'none';
         card.classList.remove('active');
       } else {
         // Out of view Right
-        const hiddenX = 350 + (offset - 2) * 80;
-        card.style.transform = `translate3d(${hiddenX}px, 0, -200px) rotateY(-50deg) scale(0.6)`;
+        const hiddenX = step2 + (offset - 2) * 50;
+        card.style.transform = `translate3d(${hiddenX}px, 0, -180px) rotateY(-45deg) scale(0.5)`;
         card.style.opacity = '0';
         card.style.zIndex = '1';
         card.style.pointerEvents = 'none';
@@ -661,6 +703,30 @@ function init3DCoverflow() {
   if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoPlay(); });
   if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoPlay(); });
 
+  // Touch Swipe Support for Mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  stage.addEventListener('touchstart', (e) => {
+    if (e.changedTouches && e.changedTouches[0]) {
+      touchStartX = e.changedTouches[0].clientX;
+    }
+  }, { passive: true });
+
+  stage.addEventListener('touchend', (e) => {
+    if (e.changedTouches && e.changedTouches[0]) {
+      touchEndX = e.changedTouches[0].clientX;
+      const diff = touchEndX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff < 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+        resetAutoPlay();
+      }
+    }
+  }, { passive: true });
+
   cards.forEach((card, idx) => {
     card.addEventListener('click', () => {
       if (idx !== activeIndex) {
@@ -678,7 +744,7 @@ function init3DCoverflow() {
 
   function startAutoPlay() {
     stopAutoPlay();
-    autoPlayTimer = setInterval(prevSlide, 2800);
+    autoPlayTimer = setInterval(prevSlide, 3200);
   }
 
   function stopAutoPlay() {
@@ -694,6 +760,10 @@ function init3DCoverflow() {
     wrapper.addEventListener('mouseenter', stopAutoPlay);
     wrapper.addEventListener('mouseleave', startAutoPlay);
   }
+
+  window.addEventListener('resize', () => {
+    updateCoverflow();
+  });
 
   updateCoverflow();
   startAutoPlay();
