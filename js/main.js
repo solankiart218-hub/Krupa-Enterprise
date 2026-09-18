@@ -376,6 +376,7 @@ function switchModalImage(thumbEl, newSrc) {
 }
 
 function handleModalImageZoom(e) {
+  if (window.innerWidth < 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0) return;
   const container = document.getElementById('modal-zoom-container');
   const img = document.getElementById('modal-main-image');
   if (!container || !img) return;
@@ -385,7 +386,7 @@ function handleModalImageZoom(e) {
   const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
 
   img.style.transformOrigin = `${x}% ${y}%`;
-  img.style.transform = 'scale(2.4)';
+  img.style.transform = 'scale(1.8)';
 }
 
 function resetModalImageZoom() {
@@ -409,29 +410,43 @@ function openQuickView(productId) {
     document.body.appendChild(modal);
   }
 
-  const galleryList = (p.galleryImages && p.galleryImages.length > 0) ? p.galleryImages : [p.image];
+  const rawImages = (p.galleryImages && p.galleryImages.length > 0) ? p.galleryImages : [p.image];
+  const galleryList = rawImages.slice(0, 4);
 
   modal.innerHTML = `
-    <div class="modal-content ecommerce-product-modal">
-      <button class="modal-close-btn" onclick="closeQuickView()">&times;</button>
+    <div class="modal-content ecommerce-product-modal" id="ecommerce-product-modal-content">
+      <!-- Sticky Top-Right Back Button: Always visible even when scrolling down -->
+      <div class="modal-sticky-nav-bar">
+        <button class="modal-sticky-back-btn" onclick="closeQuickView()" aria-label="Back" title="Back / Close">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back</span>
+        </button>
+      </div>
+
       <div class="ecommerce-modal-grid">
         <div class="product-gallery-section">
-          <div class="gallery-thumbnails">
-            ${galleryList
-              .map(
-                (imgSrc, idx) => `
-              <div class="thumb-item ${idx === 0 ? 'active' : ''}" onclick="switchModalImage(this, '${imgSrc}')" onmouseover="switchModalImage(this, '${imgSrc}')">
-                <img src="${imgSrc}" alt="${p.name} view ${idx + 1}">
-              </div>
-            `
-              )
-              .join('')}
-          </div>
+          <!-- Main Product Image (Full view without cutting) -->
           <div class="main-zoom-container" id="modal-zoom-container" onmousemove="handleModalImageZoom(event)" onmouseleave="resetModalImageZoom()">
             <img src="${galleryList[0]}" alt="${p.name}" id="modal-main-image" class="zoom-target-img">
             <div class="zoom-lens-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Hover to Zoom</div>
           </div>
+
+          <!-- 4 Thumbnails Row - Perfectly aligned without scrollbar -->
+          <div class="thumbnails-container-wrapper">
+            <div class="gallery-thumbnails" id="modal-gallery-thumbnails">
+              ${galleryList
+                .map(
+                  (imgSrc, idx) => `
+                <div class="thumb-item ${idx === 0 ? 'active' : ''}" onclick="switchModalImage(this, '${imgSrc}')" onmouseover="switchModalImage(this, '${imgSrc}')">
+                  <img src="${imgSrc}" alt="${p.name} view ${idx + 1}">
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
         </div>
+
         <div class="product-detail-section">
           <div>
             <div class="product-badge-wrap">
@@ -439,17 +454,6 @@ function openQuickView(productId) {
               <span class="category-tag">${p.category}</span>
             </div>
             <h2 class="modal-product-title">${p.name}</h2>
-            <div class="product-rating">
-              <div class="stars">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-stroke"></i>
-              </div>
-              <strong>${p.rating}</strong>
-              <span class="review-count">(${p.reviews} verified reviews)</span>
-            </div>
             <p class="modal-product-desc">${p.description}</p>
             <div class="features-header">Key Highlights:</div>
             <ul class="features-list">
@@ -460,6 +464,15 @@ function openQuickView(productId) {
                 )
                 .join('')}
             </ul>
+          </div>
+
+          <div class="modal-bottom-actions">
+            <button class="btn-modal-back-action" onclick="closeQuickView()">
+              <i class="fa-solid fa-arrow-left"></i> Back to Gallery
+            </button>
+            <a href="https://wa.me/918200856380?text=Hello%20Krupa%20Enterprise%2C%20I%20am%20interested%20in%20${encodeURIComponent(p.name)}" target="_blank" rel="noopener noreferrer" class="btn-modal-wa-action">
+              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
           </div>
         </div>
       </div>
@@ -803,8 +816,9 @@ function initMobileMenu() {
           <a href="contact" class="mobile-nav-link"><i class="fa-solid fa-address-book"></i> Contact</a>
         </nav>
         <div class="mobile-nav-footer">
-          <p><i class="fa-solid fa-phone"></i> +91 82008 56380</p>
-          <p><i class="fa-solid fa-envelope"></i> info@krupaenterprise.in</p>
+          <a href="https://wa.me/918200856380?text=Hello%20Krupa%20Enterprise%2C%20I%20am%20interested%20in%20your%20kitchenware%20products." target="_blank" rel="noopener noreferrer" class="mobile-drawer-whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+          </a>
         </div>
       </div>
     `;

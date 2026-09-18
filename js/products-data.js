@@ -13,8 +13,7 @@ const KRUPA_PRODUCTS = [
       "assets/images/products/prod-01_1.png",
       "assets/images/products/prod-01_2.png",
       "assets/images/products/prod-01_3.png",
-      "assets/images/products/prod-01_4.png",
-      "assets/images/products/prod-01_5.png"
+      "assets/images/products/prod-01_4.png"
     ],
     "description": "Durable anti-slip food-grade silicone & plastic pads for kitchen countertops, cabinets, and appliances.",
     "features": [
@@ -60,8 +59,7 @@ const KRUPA_PRODUCTS = [
       "assets/images/products/prod-03_1.png",
       "assets/images/products/prod-03_2.png",
       "assets/images/products/prod-03_3.png",
-      "assets/images/products/prod-03_4.png",
-      "assets/images/products/prod-03_5.png"
+      "assets/images/products/prod-03_4.png"
     ],
     "description": "Double-wall vacuum insulated water bottle keeps drinks cold or hot for hours.",
     "features": [
@@ -130,8 +128,7 @@ const KRUPA_PRODUCTS = [
       "assets/images/products/prod-06_1.png",
       "assets/images/products/prod-06_2.png",
       "assets/images/products/prod-06_3.png",
-      "assets/images/products/prod-06_4.png",
-      "assets/images/products/prod-06_5.png"
+      "assets/images/products/prod-06_4.png"
     ],
     "description": "Crystal clear unbreakable dining tumblers designed for everyday family meals.",
     "features": [
@@ -223,10 +220,7 @@ const KRUPA_PRODUCTS = [
       "assets/images/products/prod-10_1.png",
       "assets/images/products/prod-10_2.png",
       "assets/images/products/prod-10_3.png",
-      "assets/images/products/prod-10_4.png",
-      "assets/images/products/prod-10_5.png",
-      "assets/images/products/prod-10_6.png",
-      "assets/images/products/prod-10_7.png"
+      "assets/images/products/prod-10_4.png"
     ],
     "description": "High-density abrasive scrub pads for tough grease, burnt pans, and countertop cleaning.",
     "features": [
@@ -362,9 +356,7 @@ const KRUPA_PRODUCTS = [
       "assets/images/products/prod-16_1.png",
       "assets/images/products/prod-16_2.png",
       "assets/images/products/prod-16_3.png",
-      "assets/images/products/prod-16_4.png",
-      "assets/images/products/prod-16_5.png",
-      "assets/images/products/prod-16_6.png"
+      "assets/images/products/prod-16_4.png"
     ],
     "description": "High-rim plastic serving tray set designed for tea, snacks, and organized counter storage.",
     "features": [
@@ -410,8 +402,7 @@ const KRUPA_PRODUCTS = [
       "assets/images/products/prod-18_1.png",
       "assets/images/products/prod-18_2.png",
       "assets/images/products/prod-18_3.png",
-      "assets/images/products/prod-18_4.png",
-      "assets/images/products/prod-18_5.png"
+      "assets/images/products/prod-18_4.png"
     ],
     "description": "Assorted size utility trays for kitchen organization, dining tables, and catering.",
     "features": [

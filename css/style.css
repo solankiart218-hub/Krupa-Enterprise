@@ -403,59 +403,66 @@ body {
   display: none;
 }
 
-/* Gold Decorative Badge (Navbar Right) */
-.header-gold-deco {
-  display: flex;
+/* WhatsApp Navbar Button */
+.whatsapp-nav-btn {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, rgba(255, 248, 220, 0.95), rgba(255, 235, 175, 0.9));
-  border: 1.5px solid rgba(212, 175, 55, 0.6);
-  padding: 5px 14px 5px 6px;
+  background: #25d366;
+  color: #ffffff !important;
+  padding: 8px 18px;
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
-  cursor: default;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
   transition: all var(--trans-fast);
+  white-space: nowrap;
 }
 
-.header-gold-deco:hover {
+.whatsapp-nav-btn:hover {
+  background: #1ebc57;
+  color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
-  border-color: rgba(255, 215, 0, 0.9);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
 }
 
-.gold-icon-circle {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ffd700, #d4af37, #b8860b);
-  color: #ffffff;
+.whatsapp-nav-btn i {
+  font-size: 1.22rem;
+}
+
+/* Mobile Drawer WhatsApp Button */
+.mobile-drawer-whatsapp-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
-}
-
-.gold-deco-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-
-.gold-deco-text span {
+  gap: 10px;
+  width: 100%;
+  background: #25d366;
+  color: #ffffff !important;
+  padding: 13px 18px;
+  border-radius: 14px;
   font-family: var(--font-heading);
-  font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0.8px;
-  color: #8b6508;
-  text-transform: uppercase;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  transition: all var(--trans-fast);
 }
 
-.gold-deco-text small {
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #b8860b;
+.mobile-drawer-whatsapp-btn:hover {
+  background: #1ebc57;
+  color: #ffffff !important;
+}
+
+.mobile-drawer-whatsapp-btn i {
+  font-size: 1.3rem;
+}
+
+/* Gold Decorative Badge (Legacy / Fallback) */
+.header-gold-deco {
+  display: none;
 }
 
 /* ==========================================================================
@@ -2839,13 +2846,69 @@ textarea.form-control {
 
 /* E-Commerce Amazon / Flipkart Style Gallery Modal */
 .modal-content.ecommerce-product-modal {
-  max-width: 1000px;
-  width: 92%;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  max-width: 980px;
+  width: 94%;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 22px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   background: #ffffff;
+  position: relative;
+  scroll-behavior: smooth;
+  /* Scrollable without visible scrollbar */
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+/* Hide scrollbar completely for Chrome, Safari, Edge, Opera */
+.modal-content.ecommerce-product-modal::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Sticky Top-Right Back Button: Always pinned in view while scrolling down */
+.modal-sticky-nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+  padding: 12px 14px 0 0;
+  margin-bottom: -46px;
+}
+
+.modal-sticky-back-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(17, 20, 26, 0.9);
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  transition: all var(--trans-fast);
+}
+
+.modal-sticky-back-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 4, 41, 0.45);
+}
+
+.modal-sticky-back-btn i {
+  font-size: 0.95rem;
 }
 
 .ecommerce-modal-grid {
@@ -2856,29 +2919,89 @@ textarea.form-control {
 
 .product-gallery-section {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  gap: 14px;
   padding: 24px;
   background: #fdfcfa;
   border-right: 1px solid #f0ede6;
 }
 
-.gallery-thumbnails {
+.main-zoom-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  cursor: crosshair;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 75px;
-  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  max-height: 440px;
+  padding: 12px;
+}
+
+.zoom-target-img {
+  width: 100%;
+  height: 100%;
+  max-height: 410px;
+  object-fit: contain;
+  transition: transform 0.15s ease-out;
+  pointer-events: none;
+}
+
+.zoom-lens-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(17, 20, 26, 0.7);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.thumbnails-container-wrapper {
+  width: 100%;
+}
+
+.gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  padding: 2px 0;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.gallery-thumbnails::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .thumb-item {
-  width: 70px;
-  height: 70px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   border-radius: 12px;
   border: 2px solid #e2e8f0;
   overflow: hidden;
   cursor: pointer;
   transition: all 0.2s ease;
   background: #ffffff;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .thumb-item.active,
@@ -2891,48 +3014,24 @@ textarea.form-control {
 .thumb-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
-.main-zoom-container {
-  flex-grow: 1;
-  position: relative;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  cursor: crosshair;
+.thumbnails-scroll-indicator {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
-}
-
-.zoom-target-img {
-  width: 100%;
-  height: 100%;
-  max-height: 450px;
-  object-fit: contain;
-  transition: transform 0.15s ease-out;
-  pointer-events: none;
-}
-
-.zoom-lens-hint {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  background: rgba(17, 20, 26, 0.75);
-  backdrop-filter: blur(6px);
-  color: #ffffff;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 20px;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: rgba(217, 4, 41, 0.08);
+  border: 1px dashed rgba(217, 4, 41, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 2px;
+  text-align: center;
 }
 
 .product-detail-section {
@@ -2969,6 +3068,62 @@ textarea.form-control {
   color: #11141a;
   line-height: 1.25;
   margin-bottom: 12px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.modal-bottom-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #f0ede6;
+  flex-wrap: wrap;
+}
+
+.btn-modal-back-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  color: #1e293b;
+  border: 1.5px solid #cbd5e1;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--trans-fast);
+}
+
+.btn-modal-back-action:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.btn-modal-wa-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #ffffff !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  transition: all var(--trans-fast);
+}
+
+.btn-modal-wa-action:hover {
+  background: #1ebc57;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
 }
 
 .product-rating {
@@ -3525,8 +3680,15 @@ textarea.form-control {
     display: flex !important;
   }
 
-  .header-gold-deco {
-    display: none !important;
+  .whatsapp-nav-btn {
+    display: inline-flex !important;
+    padding: 7px 12px !important;
+    font-size: 0.8rem !important;
+    gap: 6px !important;
+  }
+
+  .whatsapp-nav-btn i {
+    font-size: 1.05rem !important;
   }
 
   .hero-card {
@@ -3752,10 +3914,21 @@ textarea.form-control {
 
   /* Modal Responsiveness */
   .modal-content.ecommerce-product-modal {
-    width: 95%;
-    max-height: 90vh;
+    width: 96%;
+    max-height: 92vh;
     overflow-y: auto;
-    border-radius: 16px;
+    border-radius: 18px;
+  }
+
+  .modal-sticky-nav-bar {
+    padding: 10px 10px 0 0;
+    margin-bottom: -40px;
+  }
+
+  .modal-sticky-back-btn {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    gap: 6px;
   }
 
   .ecommerce-modal-grid {
@@ -3763,27 +3936,36 @@ textarea.form-control {
   }
 
   .product-gallery-section {
-    flex-direction: column-reverse;
-    padding: 16px;
+    flex-direction: column;
+    padding: 14px 12px;
     gap: 12px;
-  }
-
-  .gallery-thumbnails {
-    flex-direction: row;
-    width: 100%;
-    overflow-x: auto;
-    padding-bottom: 6px;
-  }
-
-  .thumb-item {
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
+    border-right: none;
+    border-bottom: 1px solid #f0ede6;
   }
 
   .main-zoom-container {
-    min-height: 240px;
-    max-height: 280px;
+    min-height: 280px;
+    max-height: 380px;
+    padding: 8px;
+  }
+
+  .zoom-target-img {
+    max-height: 360px;
+    object-fit: contain;
+  }
+
+  .gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-bottom: 4px;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .thumb-item {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
   .product-detail-section {
@@ -3791,7 +3973,18 @@ textarea.form-control {
   }
 
   .modal-product-title {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
+  }
+
+  .modal-bottom-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-modal-back-action,
+  .btn-modal-wa-action {
+    width: 100%;
+    justify-content: center;
   }
 
   .footer-grid {
@@ -3868,7 +4061,13 @@ textarea.form-control {
 @media (max-width: 480px) {
   .brand-logo-img {
     height: 38px;
-    max-width: 140px;
+    max-width: 135px;
+  }
+
+  .whatsapp-nav-btn {
+    padding: 6px 10px !important;
+    font-size: 0.74rem !important;
+    gap: 4px !important;
   }
 
   .hero-card {
@@ -3959,5 +4158,27 @@ textarea.form-control {
 
   .section-title {
     font-size: 1.5rem;
+  }
+
+  .main-zoom-container {
+    min-height: 250px;
+    max-height: 330px;
+    padding: 6px;
+  }
+
+  .zoom-target-img {
+    max-height: 310px;
+  }
+
+  .thumb-item {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+
+  .modal-sticky-back-btn {
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    gap: 5px;
   }
 }
