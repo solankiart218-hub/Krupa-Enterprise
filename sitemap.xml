@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://krupaenterprise.in/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://krupaenterprise.in/assets/images/logo.png</image:loc>
+      <image:title>Krupa Enterprise - Kitchenware Manufacturer &amp; Supplier</image:title>
+      <image:caption>BPA-Free Kitchen Products, Tools, and Containers in Rajkot, Gujarat</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://krupaenterprise.in/gallery</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://krupaenterprise.in/about</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://krupaenterprise.in/contact</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+</urlset>
