@@ -3,6 +3,18 @@
    Features: Glassmorphism Lighting, 3D Tilt, Cart & Wishlist, Live Search, Modals
    ========================================================================== */
 
+// Clean URL handler: removes .html extension from browser URL if present
+(function handleCleanUrls() {
+  if (window.location.pathname.endsWith('.html')) {
+    let cleanPath = window.location.pathname.replace(/\.html$/, '');
+    if (cleanPath === '/index') {
+      cleanPath = '/';
+    }
+    const newUrl = cleanPath + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', newUrl);
+  }
+})();
+
 // --- Global State Management ---
 let cart = JSON.parse(localStorage.getItem('krupa_cart')) || [];
 let wishlist = JSON.parse(localStorage.getItem('krupa_wishlist')) || [];
@@ -99,17 +111,18 @@ function initHeaderScroll() {
 }
 
 function highlightActiveNav() {
-  const currentPath = window.location.pathname.toLowerCase();
+  const rawPath = window.location.pathname.toLowerCase().replace(/\.html$/, '').replace(/\/$/, '') || '/';
   const navLinks = document.querySelectorAll('.nav-link');
 
   navLinks.forEach((link) => {
-    const href = link.getAttribute('href').toLowerCase();
-    if (
-      (currentPath.endsWith('/') || currentPath.endsWith('index.html')) &&
-      href.includes('index.html')
-    ) {
-      link.classList.add('active');
-    } else if (currentPath.includes(href) && !href.includes('index.html')) {
+    const rawHref = (link.getAttribute('href') || '').toLowerCase().replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    if (rawHref === '/' || rawHref === 'index' || rawHref === '') {
+      if (rawPath === '/' || rawPath === '/index' || rawPath.endsWith('index')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    } else if (rawPath.endsWith(rawHref) || rawPath.includes(rawHref) || rawHref.includes(rawPath)) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
@@ -657,7 +670,7 @@ function init3DCoverflow() {
       } else {
         const filter = card.getAttribute('data-filter');
         if (filter) {
-          window.location.href = `gallery.html?category=${filter}`;
+          window.location.href = `gallery?category=${filter}`;
         }
       }
     });
@@ -703,7 +716,7 @@ function initMobileMenu() {
       <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
       <div class="mobile-nav-content">
         <div class="mobile-nav-header">
-          <a href="index.html" class="brand-logo">
+          <a href="/" class="brand-logo">
             <img src="assets/images/logo.png" alt="KRUPA ENTERPRISE" style="height: 42px; object-fit: contain;">
           </a>
           <button class="close-mobile-nav-btn" id="close-mobile-nav-btn" aria-label="Close Menu">&times;</button>
@@ -714,10 +727,10 @@ function initMobileMenu() {
           <div id="mobile-search-dropdown" class="search-dropdown"></div>
         </div>
         <nav class="mobile-nav-links">
-          <a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a>
-          <a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-boxes-stacked"></i> Gallery</a>
-          <a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
-          <a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-address-book"></i> Contact</a>
+          <a href="/" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="gallery" class="mobile-nav-link"><i class="fa-solid fa-boxes-stacked"></i> Gallery</a>
+          <a href="about" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+          <a href="contact" class="mobile-nav-link"><i class="fa-solid fa-address-book"></i> Contact</a>
         </nav>
         <div class="mobile-nav-footer">
           <p><i class="fa-solid fa-phone"></i> +91 82008 56380</p>
@@ -791,16 +804,17 @@ function initMobileMenu() {
 }
 
 function highlightActiveMobileNav() {
-  const currentPath = window.location.pathname.toLowerCase();
+  const rawPath = window.location.pathname.toLowerCase().replace(/\.html$/, '').replace(/\/$/, '') || '/';
   const navLinks = document.querySelectorAll('.mobile-nav-link');
   navLinks.forEach((link) => {
-    const href = link.getAttribute('href').toLowerCase();
-    if (
-      (currentPath.endsWith('/') || currentPath.endsWith('index.html')) &&
-      href.includes('index.html')
-    ) {
-      link.classList.add('active');
-    } else if (currentPath.includes(href) && !href.includes('index.html')) {
+    const rawHref = (link.getAttribute('href') || '').toLowerCase().replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    if (rawHref === '/' || rawHref === 'index' || rawHref === '') {
+      if (rawPath === '/' || rawPath === '/index' || rawPath.endsWith('index')) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    } else if (rawPath.endsWith(rawHref) || rawPath.includes(rawHref) || rawHref.includes(rawPath)) {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
