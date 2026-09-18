@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kitchenware Gallery - Krupa Enterprise | Explore Kitchen Essentials</title>
+  <meta name="description" content="Explore our complete collection of premium kitchenware: airtight storage containers, multi-compartment lunch boxes, kitchen tools, silicone ice trays, organizer racks, and cookware.">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" id="brand-logo-link">
+        <img src="assets/images/logo.png" alt="KRUPA ENTERPRISE" class="brand-logo-img">
+      </a>
+
+      <!-- Navigation Pill Strip -->
+      <nav class="nav-pill-container" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="gallery.html" class="nav-link active" id="nav-gallery">Gallery</a>
+        <a href="about.html" class="nav-link" id="nav-about">About</a>
+        <a href="contact.html" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="search-wrapper">
+        <input type="text" id="global-search-input" class="search-input" placeholder="Search kitchen products..." autocomplete="off">
+        <button class="search-btn" id="global-search-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <div id="search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <!-- Gold Decorative Badge -->
+        <div class="header-gold-deco" title="Krupa Golden Quality">
+          <div class="gold-icon-circle">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <div class="gold-deco-text">
+            <span>GOLDEN</span>
+            <small>QUALITY</small>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="action-icon-btn mobile-menu-toggle" id="mobile-menu-btn" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= GALLERY HERO SECTION ================= -->
+  <section class="hero-section gallery-hero-banner">
+    <div class="container hero-grid">
+      <!-- Left Hero Text -->
+      <div class="hero-content">
+        <div class="sub-tag">OUR GALLERY</div>
+        <h1 class="hero-title">
+          Explore<br>
+          <span class="highlight">Kitchen Essentials</span>
+        </h1>
+        <p class="hero-description">
+          Discover a wide range of premium kitchenware products designed to make every kitchen smarter, cleaner and more beautiful.
+        </p>
+
+        <!-- Feature Badges -->
+        <div class="features-badge-strip">
+          <span class="feature-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Stylish Designs</span>
+          <span class="feature-pill"><i class="fa-solid fa-shield-halved"></i> High-Quality Products</span>
+          <span class="feature-pill"><i class="fa-solid fa-kitchen-set"></i> Modern Kitchen Solutions</span>
+          <span class="feature-pill"><i class="fa-solid fa-house"></i> For Every Home</span>
+        </div>
+
+        <!-- Hero Pill Banner -->
+        <div style="background: rgba(255, 255, 255, 0.85); border: 1px solid var(--glass-border); border-radius: var(--radius-full); padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: var(--glass-shadow); max-width: 540px;">
+          <div style="display: flex; gap: 14px; font-size: 0.8rem; font-weight: 700; color: #4b5563;">
+            <span><i class="fa-solid fa-circle-check" style="color: var(--color-primary);"></i> Premium Quality</span>
+            <span><i class="fa-solid fa-circle-check" style="color: var(--color-primary);"></i> Wide Variety</span>
+          </div>
+          <a href="#gallery-grid-start" class="btn-primary" style="padding: 8px 18px; font-size: 0.82rem;">
+            A Better Kitchen A Happier You <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Media Column -->
+      <div class="hero-media-wrapper">
+        <div class="floating-script-text">
+          Every Kitchen<br><span>Tells a Story</span>
+        </div>
+
+        <div class="floating-3d-badge animated-float" style="right: 15px; bottom: 20px;">
+          <div class="badge-item"><i class="fa-solid fa-fire-burner"></i> Cook</div>
+          <div class="badge-item"><i class="fa-solid fa-box-archive"></i> Store</div>
+          <div class="badge-item"><i class="fa-solid fa-layer-group"></i> Organize</div>
+          <div class="badge-item"><i class="fa-solid fa-utensils"></i> Serve</div>
+          <div class="badge-item"><i class="fa-solid fa-heart"></i> Live Better</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KITCHENWARE GALLERY SECTION ================= -->
+  <section class="gallery-section" id="gallery-grid-start" style="padding: 50px 0 70px;">
+    <div class="container">
+      <!-- Section Header -->
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div class="sub-tag">OUR PRODUCTS</div>
+          <h2 class="section-title">Kitchenware <span class="highlight">Gallery</span></h2>
+          <p class="section-desc">Browse our complete collection of kitchen products crafted for modern lifestyles.</p>
+        </div>
+        <div style="font-family: var(--font-handwriting); font-size: 2.2rem; color: #1e242c; transform: rotate(-3deg);">
+          Good Food Good Mood ♡
+        </div>
+      </div>
+
+      <!-- Search & Filter Controls -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 36px;">
+        <!-- Category Filter Pills (Mockup exact categories) -->
+        <div class="gallery-filter-tabs-wrap">
+          <button class="filter-tab-btn active" data-category="all">All Products</button>
+          <button class="filter-tab-btn" data-category="storage">Storage & Containers</button>
+          <button class="filter-tab-btn" data-category="lunch-boxes">Lunch Boxes</button>
+          <button class="filter-tab-btn" data-category="kitchen-tools">Kitchen Tools</button>
+          <button class="filter-tab-btn" data-category="ice-trays">Ice Trays & Molds</button>
+          <button class="filter-tab-btn" data-category="dinnerware">Dinnerware</button>
+          <button class="filter-tab-btn" data-category="organizers">Organizers</button>
+          <button class="filter-tab-btn" data-category="cookware">Cookware</button>
+        </div>
+
+        <!-- Keyword Filter Input -->
+        <div style="max-width: 440px; width: 100%; position: relative;">
+          <input type="text" id="gallery-search-input" class="form-control" placeholder="Search within gallery by item name..." style="padding-left: 40px; border-radius: var(--radius-full);">
+          <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 16px; top: 15px; color: #94a3b8;"></i>
+        </div>
+      </div>
+
+      <!-- 16-Item Dynamic Product Grid -->
+      <div id="gallery-products-container" class="gallery-grid">
+        <!-- Rendered dynamically by js/gallery.js and products-data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DESIGNED FOR A BETTER TOMORROW BANNER ================= -->
+  <section class="feature-banner-section" style="padding-bottom: 70px;">
+    <div class="container">
+      <div class="cta-banner-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 244, 238, 0.9));">
+        <div>
+          <div class="sub-tag">ECO-FRIENDLY & RECYCLABLE</div>
+          <h2 class="section-title">Designed for a<br><span class="highlight">Better Tomorrow</span></h2>
+          <p class="section-desc" style="margin: 14px 0 24px;">
+            Durable. Stylish. Sustainable. Explore eco-friendly, food-grade certified kitchenware made to minimize waste and elevate daily cooking.
+          </p>
+          <a href="contact.html" class="btn-primary shine-hover">
+            Explore More <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="feature-pill" style="padding: 14px 18px; border-radius: var(--radius-md);"><i class="fa-solid fa-leaf"></i> Sustainable Choice</div>
+          <div class="feature-pill" style="padding: 14px 18px; border-radius: var(--radius-md);"><i class="fa-solid fa-gem"></i> Modern & Elegant</div>
+          <div class="feature-pill" style="padding: 14px 18px; border-radius: var(--radius-md);"><i class="fa-solid fa-shield-halved"></i> Long Lasting</div>
+          <div class="feature-pill" style="padding: 14px 18px; border-radius: var(--radius-md);"><i class="fa-solid fa-heart"></i> For Every Home</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/logo.png" alt="KRUPA ENTERPRISE" class="brand-logo-img">
+          </a>
+          <p>Empowering homes with innovative, durable, and aesthetic kitchenware solutions.</p>
+          <div class="footer-social-strip">
+            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://web.whatsapp.com/send?text=ClipEase%20Portable%20Writing%20Board%20(A4)%20with%20Pen%20Loop%20%26%20Rigid%20Back%20https%3A%2F%2Fkrupaenterprise.in%2Fproducts%2Ffb6b77c8-8b1a-4cac-b460-f660a2a54206" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fkrupaenterprise.in%2Fproducts%2Ffb6b77c8-8b1a-4cac-b460-f660a2a54206&text=ClipEase%20Portable%20Writing%20Board%20(A4)%20with%20Pen%20Loop%20%26%20Rigid%20Back" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Our Products -->
+        <div class="footer-col">
+          <h4>Our Products</h4>
+          <ul class="footer-links-list">
+            <li><a href="gallery.html">Storage & Containers</a></li>
+            <li><a href="gallery.html">Lunch Boxes</a></li>
+            <li><a href="gallery.html">Kitchen Tools</a></li>
+            <li><a href="gallery.html">Ice Trays & Molds</a></li>
+            <li><a href="gallery.html">Dinnerware</a></li>
+            <li><a href="gallery.html">Organizers</a></li>
+            <li><a href="gallery.html">Cookware</a></li>
+            <li><a href="gallery.html">Custom Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Us -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Vadi Wadi, Gondal Road, Rajkot - 360305, Gujarat, India</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@krupaenterprise.in</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 5: Script Quote -->
+        <div class="footer-col footer-quote-box">
+          <div class="footer-script-quote">
+            Better<br>Kitchen<br>Brighter<br>Life
+          </div>
+          <i class="fa-solid fa-seedling" style="color: #22c55e; font-size: 1.8rem;"></i>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 Krupa Enterprise. All Rights Reserved.</span>
+        <span>Make by <a href="https://www.zankhitechnolabs.com/" target="_blank" rel="noopener" class="developer-link">Zankhi Technolabs</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer-overlay" class="cart-drawer-overlay">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <h3><i class="fa-solid fa-cart-shopping" style="color: var(--color-primary);"></i> Shopping Cart</h3>
+        <button id="close-cart-btn" class="close-cart-btn">&times;</button>
+      </div>
+      <div id="cart-items-container" class="cart-items-container"></div>
+      <div class="cart-drawer-footer">
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; text-align: center;">
+          <i class="fa-solid fa-truck-fast" style="color: #16a34a;"></i> Free shipping on all orders!
+        </p>
+        <button class="btn-checkout shine-hover" onclick="handleCheckout()">
+          Proceed to Inquiry / Order <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Product Modal -->
+  <div id="quick-view-modal" class="modal-overlay"></div>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+  <script>
+    // Handle category preset if navigated from home page
+    const presetFilter = localStorage.getItem('krupa_filter');
+    if (presetFilter) {
+      localStorage.removeItem('krupa_filter');
+      const targetBtn = document.querySelector(`.filter-tab-btn[data-category="${presetFilter}"]`);
+      if (targetBtn) {
+        document.querySelectorAll('.filter-tab-btn').forEach(b => b.classList.remove('active'));
+        targetBtn.classList.add('active');
+        currentCategory = presetFilter;
+        renderGalleryProducts();
+      }
+    }
+  </script>
+</body>
+</html>

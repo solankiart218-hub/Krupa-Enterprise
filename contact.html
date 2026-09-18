@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Krupa Enterprise | We're Here For You</title>
+  <meta name="description" content="Get in touch with Krupa Enterprise. Reach our Rajkot headquarters, contact our sales and support team, visit our showroom, or submit an inquiry form.">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Main Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- ================= HEADER / NAVBAR ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" id="brand-logo-link">
+        <img src="assets/images/logo.png" alt="KRUPA ENTERPRISE" class="brand-logo-img">
+      </a>
+
+      <!-- Navigation Pill Strip -->
+      <nav class="nav-pill-container" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link" id="nav-home">Home</a>
+        <a href="gallery.html" class="nav-link" id="nav-gallery">Gallery</a>
+        <a href="about.html" class="nav-link" id="nav-about">About</a>
+        <a href="contact.html" class="nav-link active" id="nav-contact">Contact</a>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="search-wrapper">
+        <input type="text" id="global-search-input" class="search-input" placeholder="Search kitchen products..." autocomplete="off">
+        <button class="search-btn" id="global-search-btn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <div id="search-dropdown" class="search-dropdown"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <!-- Gold Decorative Badge -->
+        <div class="header-gold-deco" title="Krupa Golden Quality">
+          <div class="gold-icon-circle">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+          <div class="gold-deco-text">
+            <span>GOLDEN</span>
+            <small>QUALITY</small>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="action-icon-btn mobile-menu-toggle" id="mobile-menu-btn" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= CONTACT HERO SECTION ================= -->
+  <section class="hero-section contact-hero-section">
+    <div class="container hero-grid">
+      <!-- Left Hero Text -->
+      <div class="hero-content">
+        <div class="sub-tag">GET IN TOUCH</div>
+        <h1 class="hero-title">
+          We're Here<br>
+          <span class="highlight">For You</span>
+        </h1>
+        <p class="hero-description">
+          Have questions, suggestions, or business inquiries? We'd love to hear from you. Let's build a better, brighter kitchen together.
+        </p>
+
+        <!-- CTA Button -->
+        <div class="hero-cta-group">
+          <a href="#contact-form-card" class="btn-primary shine-hover">
+            Let's Talk <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Badges Row Strip -->
+        <div class="features-badge-strip">
+          <span class="feature-pill"><i class="fa-solid fa-bolt"></i> Quick Response (within 24h)</span>
+          <span class="feature-pill"><i class="fa-solid fa-headset"></i> Trusted Support</span>
+          <span class="feature-pill"><i class="fa-solid fa-handshake"></i> Business Inquiries</span>
+          <span class="feature-pill"><i class="fa-solid fa-users"></i> Dedicated Team</span>
+        </div>
+      </div>
+
+      <!-- Right Media Column -->
+      <div class="hero-media-wrapper">
+        <div class="floating-script-text">
+          Let's Create<br><span>Happier Homes Together</span>
+        </div>
+
+        <div class="floating-3d-badge animated-float" style="right: 10px; bottom: 25px; padding: 12px 18px;">
+          <div style="font-family: var(--font-handwriting); font-size: 1.5rem; color: #1e242c; line-height: 1.2;">
+            Good Food<br>Good People<br><span style="color: var(--color-primary);">Better Connections ♡</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4 CONTACT INFO CARDS ================= -->
+  <section class="contact-cards-section" style="padding-bottom: 50px;">
+    <div class="container">
+      <div class="contact-cards-grid">
+        <!-- 1. Call Us -->
+        <div class="contact-info-card">
+          <div class="contact-card-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="contact-card-text">
+            <h4>Call Us</h4>
+            <p><strong>+91 98765 43210</strong></p>
+            <span>Mon - Sat : 9:00 AM - 6:00 PM</span>
+          </div>
+        </div>
+
+        <!-- 2. Email Us -->
+        <div class="contact-info-card">
+          <div class="contact-card-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-card-text">
+            <h4>Email Us</h4>
+            <p><strong>info@krupaenterprise.in</strong></p>
+            <span>We reply within 24 hours</span>
+          </div>
+        </div>
+
+        <!-- 3. Visit Our Office -->
+        <div class="contact-info-card">
+          <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-card-text">
+            <h4>Visit Our Office</h4>
+            <p>Vadi Wadi, Gondal Road, Rajkot - 360305, Gujarat</p>
+            <a href="https://maps.google.com/?cid=14343687582043513803&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed" target="_blank" rel="noopener">
+              Get Directions <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Business Hours -->
+        <div class="contact-info-card">
+          <div class="contact-card-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="contact-card-text">
+            <h4>Business Hours</h4>
+            <p>Monday - Saturday<br>9:00 AM - 6:00 PM</p>
+            <span>Sunday : Closed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT FORM & MAP SPLIT ================= -->
+  <section class="contact-form-section" style="padding-bottom: 60px;">
+    <div class="container">
+      <div class="contact-form-map-grid">
+        <!-- Left: Send Us A Message Form -->
+        <div class="contact-form-card" id="contact-form-card">
+          <div class="sub-tag">SEND US A MESSAGE</div>
+          <h2 class="section-title" style="font-size: 2rem;">We'd Love to Hear from You</h2>
+          <p class="section-desc" style="margin-bottom: 24px;">Fill out the form and our team will get back to you as soon as possible.</p>
+
+          <form id="contact-us-form">
+            <div class="form-group-row">
+              <div class="form-group">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" name="name" class="form-control" placeholder="Your Name *" required>
+              </div>
+              <div class="form-group">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" name="email" class="form-control" placeholder="Your Email *" required>
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" name="phone" class="form-control" placeholder="Your Phone Number">
+              </div>
+              <div class="form-group">
+                <i class="fa-solid fa-list"></i>
+                <select name="subject" class="form-control" style="appearance: auto;">
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Bulk & Wholesale Orders">Bulk & Wholesale Orders</option>
+                  <option value="Product Support">Product Support</option>
+                  <option value="Retail Partnership">Retail Partnership</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <i class="fa-regular fa-comment-dots"></i>
+              <textarea name="message" class="form-control" placeholder="Your Message *" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary shine-hover" style="width: 100%; justify-content: center; padding: 14px;">
+              <i class="fa-regular fa-paper-plane"></i> Send Message <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Location Map Card -->
+        <div class="contact-map-card">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
+            <div>
+              <div class="sub-tag">OUR LOCATION</div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 800; color: #11141a;">Rajkot Headquarters</h3>
+              <p style="font-size: 0.85rem; color: #64748b;">Vadi Wadi, Gondal Road, Rajkot - 360305, Gujarat, India</p>
+            </div>
+            <a href="https://maps.google.com/?cid=14343687582043513803&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed" target="_blank" rel="noopener" class="btn-primary" style="padding: 8px 14px; font-size: 0.8rem; flex-shrink: 0;">
+              Open in Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+
+          <!-- Location Map Display -->
+          <div class="map-embed-container" style="height: 320px; overflow: hidden; border-radius: 18px; border: 1px solid rgba(220, 215, 205, 0.8); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);">
+            <a href="https://maps.google.com/?cid=14343687582043513803&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAMYASAF&hl=en&gl=IN&source=embed" target="_blank" rel="noopener" style="display: block; width: 100%; height: 100%; overflow: hidden; position: relative;">
+              <img src="assets/images/krupa_map.png" alt="Krupa Enterprise Location Map" style="width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease;">
+            </a>
+          </div>
+
+          <!-- Follow Us Strip -->
+          <div class="social-links-strip">
+            <div>
+              <h5 style="font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: #11141a;">Follow Us</h5>
+              <p style="font-size: 0.8rem; color: #64748b;">Stay connected for updates & new products</p>
+            </div>
+            <div class="social-icons-group">
+              <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FREQUENTLY ASKED QUESTIONS (QUICK ANSWERS) ================= -->
+  <section class="faq-section" style="padding-bottom: 60px;">
+    <div class="container">
+      <div class="section-header">
+        <div class="sub-tag">FREQUENTLY ASKED QUESTIONS</div>
+        <h2 class="section-title">Quick Answers</h2>
+        <p class="section-desc">Find fast answers to common questions about our products, shipping, and bulk inquiries.</p>
+      </div>
+
+      <div class="faq-grid">
+        <!-- FAQ 1 -->
+        <div class="faq-item open">
+          <div class="faq-header">
+            <span>What types of kitchenware products do you offer?</span>
+            <div class="faq-icon-toggle"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-body">
+            We manufacture and distribute a diverse line of plastic kitchenware including airtight storage containers, leakproof bento lunch boxes, heat-resistant silicone cooking tools, flexible ice trays, stainless steel cookware, and modular countertop organizers.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Where is your store or office located?</span>
+            <div class="faq-icon-toggle"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-body">
+            Our corporate headquarters and primary showroom are located at Vadi Wadi, Gondal Road, Rajkot - 360305, Gujarat, India. Visitors are welcome during regular business hours Monday through Saturday.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Do you provide bulk orders for businesses?</span>
+            <div class="faq-icon-toggle"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-body">
+            Yes! We specialize in wholesale, catering, retail distribution, and corporate gifting. Custom branding and bespoke container colors are available on bulk production volumes.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>How can I know about new product launches?</span>
+            <div class="faq-icon-toggle"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-body">
+            You can subscribe to our newsletter at the bottom of any page, follow our social media profiles on Instagram and WhatsApp, or contact our sales team directly for the latest catalog.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STILL HAVE QUESTIONS CTA BANNER ================= -->
+  <section class="feature-banner-section" style="padding-bottom: 70px;">
+    <div class="container">
+      <div class="cta-banner-card">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <img src="assets/images/storage_containers.jpg" alt="Krupa Support Products" style="width: 130px; height: 130px; object-fit: cover; border-radius: 18px; border: 2px solid #fff; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+          <div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: #11141a; margin-bottom: 6px;">
+              Still Have <span class="highlight">Questions?</span>
+            </h3>
+            <p class="section-desc" style="margin-bottom: 16px;">Our team is ready to assist you with anything you need. Reach out today and let's make your kitchen better together!</p>
+            <a href="#contact-form-card" class="btn-primary shine-hover">
+              Contact Us Now <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+          <div style="font-family: var(--font-handwriting); font-size: 2.6rem; color: #1e242c; line-height: 1.1; transform: rotate(-2deg);">
+            Better Kitchen<br><span style="color: var(--color-primary);">Brighter Life</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/logo.png" alt="KRUPA ENTERPRISE" class="brand-logo-img">
+          </a>
+          <p>Empowering homes with innovative, durable, and aesthetic kitchenware solutions.</p>
+          <div class="footer-social-strip">
+            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://web.whatsapp.com/send?text=ClipEase%20Portable%20Writing%20Board%20(A4)%20with%20Pen%20Loop%20%26%20Rigid%20Back%20https%3A%2F%2Fkrupaenterprise.in%2Fproducts%2Ffb6b77c8-8b1a-4cac-b460-f660a2a54206" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fkrupaenterprise.in%2Fproducts%2Ffb6b77c8-8b1a-4cac-b460-f660a2a54206&text=ClipEase%20Portable%20Writing%20Board%20(A4)%20with%20Pen%20Loop%20%26%20Rigid%20Back" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Our Products -->
+        <div class="footer-col">
+          <h4>Our Products</h4>
+          <ul class="footer-links-list">
+            <li><a href="gallery.html">Storage & Containers</a></li>
+            <li><a href="gallery.html">Lunch Boxes</a></li>
+            <li><a href="gallery.html">Kitchen Tools</a></li>
+            <li><a href="gallery.html">Ice Trays & Molds</a></li>
+            <li><a href="gallery.html">Dinnerware</a></li>
+            <li><a href="gallery.html">Organizers</a></li>
+            <li><a href="gallery.html">Cookware</a></li>
+            <li><a href="gallery.html">Custom Products</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact Us -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-info">
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Vadi Wadi, Gondal Road, Rajkot - 360305, Gujarat, India</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@krupaenterprise.in</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 5: Script Quote -->
+        <div class="footer-col footer-quote-box">
+          <div class="footer-script-quote">
+            Better<br>Kitchen<br>Brighter<br>Life
+          </div>
+          <i class="fa-solid fa-seedling" style="color: #22c55e; font-size: 1.8rem;"></i>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 Krupa Enterprise. All Rights Reserved.</span>
+        <span>Make by <a href="https://www.zankhitechnolabs.com/" target="_blank" rel="noopener" class="developer-link">Zankhi Technolabs</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top-btn" class="back-to-top-btn" aria-label="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Cart Drawer -->
+  <div id="cart-drawer-overlay" class="cart-drawer-overlay">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <h3><i class="fa-solid fa-cart-shopping" style="color: var(--color-primary);"></i> Shopping Cart</h3>
+        <button id="close-cart-btn" class="close-cart-btn">&times;</button>
+      </div>
+      <div id="cart-items-container" class="cart-items-container"></div>
+      <div class="cart-drawer-footer">
+        <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; text-align: center;">
+          <i class="fa-solid fa-truck-fast" style="color: #16a34a;"></i> Free shipping on all orders!
+        </p>
+        <button class="btn-checkout shine-hover" onclick="handleCheckout()">
+          Proceed to Inquiry / Order <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick View Product Modal -->
+  <div id="quick-view-modal" class="modal-overlay"></div>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Scripts -->
+  <script src="js/products-data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

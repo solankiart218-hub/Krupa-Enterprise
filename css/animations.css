@@ -1,0 +1,144 @@
+/* Krupa Enterprise - Advanced Animations & Lighting Effects */
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes floatOpposite {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-1deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(217, 4, 41, 0.25), 0 0 40px rgba(217, 4, 41, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(217, 4, 41, 0.45), 0 0 70px rgba(217, 4, 41, 0.2);
+  }
+}
+
+@keyframes shimmerLight {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(250%) rotate(25deg);
+  }
+}
+
+@keyframes softRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes badgeBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rippleEffect {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Lighting Glow Utility Classes */
+.glow-primary {
+  box-shadow: 0 10px 30px -5px rgba(217, 4, 41, 0.35);
+}
+
+.glow-ambient {
+  position: relative;
+}
+
+.glow-ambient::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(239, 35, 60, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(15px);
+}
+
+.animated-float {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.animated-float-delay {
+  animation: floatOpposite 5s ease-in-out infinite 0.5s;
+}
+
+.pulse-red {
+  animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+/* Shine Sweep effect on buttons and cards */
+.shine-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-hover::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  pointer-events: none;
+  transition: transform 0.75s ease-in-out;
+}
+
+.shine-hover:hover::after {
+  transform: translateX(100%) rotate(25deg);
+}
