@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DCoverflow();
   updateHeaderBadges();
   highlightActiveNav();
+  initMobileMenu();
 });
 
 /* ==========================================================================
@@ -683,4 +684,126 @@ function init3DCoverflow() {
 
   updateCoverflow();
   startAutoPlay();
+}
+
+/* ==========================================================================
+   MOBILE NAVIGATION DRAWER & SEARCH LOGIC
+   ========================================================================== */
+function initMobileMenu() {
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  if (!menuBtn) return;
+
+  // Create mobile nav drawer if it doesn't exist
+  let drawer = document.getElementById('mobile-nav-drawer');
+  if (!drawer) {
+    drawer = document.createElement('div');
+    drawer.id = 'mobile-nav-drawer';
+    drawer.className = 'mobile-nav-drawer';
+    drawer.innerHTML = `
+      <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+      <div class="mobile-nav-content">
+        <div class="mobile-nav-header">
+          <a href="index.html" class="brand-logo">
+            <img src="assets/images/logo.png" alt="KRUPA ENTERPRISE" style="height: 42px; object-fit: contain;">
+          </a>
+          <button class="close-mobile-nav-btn" id="close-mobile-nav-btn" aria-label="Close Menu">&times;</button>
+        </div>
+        <div class="mobile-search-box">
+          <input type="text" id="mobile-search-input" placeholder="Search kitchen products..." autocomplete="off">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <div id="mobile-search-dropdown" class="search-dropdown"></div>
+        </div>
+        <nav class="mobile-nav-links">
+          <a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a>
+          <a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-boxes-stacked"></i> Gallery</a>
+          <a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About</a>
+          <a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-address-book"></i> Contact</a>
+        </nav>
+        <div class="mobile-nav-footer">
+          <p><i class="fa-solid fa-phone"></i> +91 82008 56380</p>
+          <p><i class="fa-solid fa-envelope"></i> info@krupaenterprise.in</p>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(drawer);
+  }
+
+  const closeBtn = document.getElementById('close-mobile-nav-btn');
+  const overlay = document.getElementById('mobile-nav-overlay');
+
+  function openDrawer() {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    highlightActiveMobileNav();
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  menuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openDrawer();
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+
+  // Setup mobile search input autocomplete
+  const mobileSearchInput = document.getElementById('mobile-search-input');
+  const mobileSearchDropdown = document.getElementById('mobile-search-dropdown');
+  if (mobileSearchInput && mobileSearchDropdown) {
+    mobileSearchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim().toLowerCase();
+      if (query.length < 2) {
+        mobileSearchDropdown.classList.remove('show');
+        mobileSearchDropdown.innerHTML = '';
+        return;
+      }
+      if (typeof KRUPA_PRODUCTS === 'undefined') return;
+      const matches = KRUPA_PRODUCTS.filter(
+        (p) =>
+          p.name.toLowerCase().includes(query) ||
+          p.category.toLowerCase().includes(query) ||
+          p.description.toLowerCase().includes(query)
+      );
+      if (matches.length === 0) {
+        mobileSearchDropdown.innerHTML = `<div style="padding: 14px; text-align: center; color: #64748b; font-size: 0.85rem;">No products found for "<strong>${query}</strong>"</div>`;
+      } else {
+        mobileSearchDropdown.innerHTML = matches
+          .slice(0, 5)
+          .map(
+            (p) => `
+          <div class="search-result-item" onclick="closeDrawer(); openQuickView('${p.id}')">
+            <img src="${p.image}" alt="${p.name}">
+            <div class="search-result-info">
+              <h5>${p.name}</h5>
+            </div>
+          </div>
+        `
+          )
+          .join('');
+      }
+      mobileSearchDropdown.classList.add('show');
+    });
+  }
+}
+
+function highlightActiveMobileNav() {
+  const currentPath = window.location.pathname.toLowerCase();
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
+  navLinks.forEach((link) => {
+    const href = link.getAttribute('href').toLowerCase();
+    if (
+      (currentPath.endsWith('/') || currentPath.endsWith('index.html')) &&
+      href.includes('index.html')
+    ) {
+      link.classList.add('active');
+    } else if (currentPath.includes(href) && !href.includes('index.html')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
 }
